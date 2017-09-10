@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Error Handling - API Documentation</title>
+    <meta name="generator" content="Hugo 0.26" />
+
+    
+    <meta name="description" content="Telstra API documentation">
+    
+    <link rel="canonical" href="https://kawaja.github.io/apis/programmable-network/error-handling/">
+    
+    <meta name="author" content="Rajeev Ramani">
+    
+
+    <meta property="og:url" content="https://kawaja.github.io/apis/programmable-network/error-handling/">
+    <meta property="og:title" content="API Documentation">
+    <meta property="og:image" content="https://kawaja.github.io/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="API Documentation">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://kawaja.github.io/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://kawaja.github.io/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://kawaja.github.io/fonts/icon.eot');
+        src: url('https://kawaja.github.io/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://kawaja.github.io/fonts/icon.woff')
+               format('woff'),
+             url('https://kawaja.github.io/fonts/icon.ttf')
+               format('truetype'),
+             url('https://kawaja.github.io/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://kawaja.github.io/stylesheets/application.css">
+    <link rel="stylesheet" href="https://kawaja.github.io/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://kawaja.github.io/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://kawaja.github.io/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://kawaja.github.io/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-red palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Error Handling
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/rajeevramani" title="@rajeevramani on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://kawaja.github.io/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://kawaja.github.io/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>API Documentation <span class="version">1.0.0</span></strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="API Documentation" href="https://kawaja.github.io/">
+	
+	API Documentation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    <span class="section">APIs</span>
+    <ul>
+      
+        
+        
+         
+
+
+
+<a  title="Programmable Network" href="https://kawaja.github.io/apis/programmable-network/">
+	
+	Programmable Network
+</a>
+
+
+
+          <ul>
+            
+              
+              
+
+
+
+<a  title="Key Concepts" href="https://kawaja.github.io/apis/programmable-network/key-concepts/">
+	
+	Key Concepts
+</a>
+
+
+
+            
+              
+              
+
+
+
+<a  title="Examples" href="https://kawaja.github.io/apis/programmable-network/examples/">
+	
+	Examples
+</a>
+
+
+
+            
+              
+              
+
+
+
+<a class="current" title="Error Handling" href="https://kawaja.github.io/apis/programmable-network/error-handling/">
+	
+	Error Handling
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+            
+              
+              
+
+
+
+<a  title="Master Data" href="https://kawaja.github.io/apis/programmable-network/master-data/">
+	
+	Master Data
+</a>
+
+
+
+            
+          </ul>
+        
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/rajeevramani" target="_blank" title="@rajeevramani on GitHub">
+              @rajeevramani on GitHub
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="mailto:rajeev.ramani@email.com" title="Email of rajeev.ramani@email.com">
+              Contact via email
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Error Handling </h1>
+
+			
+
+<h2 id="json-error-messages">JSON Error Messages</h2>
+
+<p>The Programmable Network API uses an extended error message format with unique error codes, a descriptive message and an auxiliary message generally describing the error in more detail. The schema of an error response is:</p>
+
+<pre><code class="language-json">{ 
+    &quot;type&quot;: &quot;object&quot;, 
+    &quot;properties&quot;: { 
+        &quot;error-code&quot;: { 
+            &quot;required&quot;: true, 
+            &quot;type&quot;: &quot;integer&quot; 
+        }, 
+        &quot;error-message&quot;: { 
+            &quot;required&quot;: true, 
+            &quot;type&quot;: &quot;string&quot; 
+        }, 
+        &quot;error-auxiliary&quot;: { 
+            &quot;required&quot;: true, 
+            &quot;type&quot;: &quot;string&quot; 
+        } 
+    } 
+} 
+</code></pre>
+
+<p>An example:</p>
+
+<pre><code class="language-json">{ 
+  &quot;error-code&quot;: 10001, 
+  &quot;error-message&quot;: &quot;This operation is not supported.&quot;, 
+  &quot;error-auxiliary&quot;: &quot;Error&quot; 
+} 
+</code></pre>
+
+<h2 id="error-codes">Error Codes</h2>
+
+<table>
+<thead>
+<tr>
+<th>HTTP Code</th>
+<th>error-code</th>
+<th>error-message</th>
+<th>error-auxiliary</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>400</td>
+<td>1060047</td>
+<td>No data found for the requested token.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>401</td>
+<td>1060049</td>
+<td>You do not have required role/permission to access PEN system.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1030603</td>
+<td>vportuuid does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>406</td>
+<td>1030605</td>
+<td>input json is invalid</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>401</td>
+<td>1030804</td>
+<td>You do not have permissions for this operation</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1030310</td>
+<td>This HTTP operation is not supported</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1030326</td>
+<td>EndpointUUID is invalid</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1030304</td>
+<td>Datacenter does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>202</td>
+<td>1030600</td>
+<td>vport deleting in progress</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030601</td>
+<td>vport tag value is invalid</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030602</td>
+<td>vport value already assigned</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1030603</td>
+<td>vportuuid does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030604</td>
+<td>vport exist with other segmentation type</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030722</td>
+<td>DIA EndpointUUID is invalid</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030723</td>
+<td>DIA EndpointUUID does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030615</td>
+<td>EndpointUUID is not associated with CustomerUUID</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030629</td>
+<td>EndpointUUID does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1031353</td>
+<td>Port associated with vportuuid or EndpointUUID is already unprovisioned</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1030304</td>
+<td>Datacenter does not exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030305</td>
+<td>Datacenter is not public</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030306</td>
+<td>Datacenter is already public</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030307</td>
+<td>Datacenter is not assigned to customer</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030338</td>
+<td>Datacenter already assigned to this switch</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030410</td>
+<td>No switch associated on Datacenter</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030810</td>
+<td>Datacenter code already exist</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1031351</td>
+<td>Datacenter not assigned to this switch</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1030401</td>
+<td>Datacenter is in use</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1031352</td>
+<td>Datacenter and switch is in use</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1032005</td>
+<td>Customer has already reached max allowed unused endpoints for this datacenter and interfacetype combination.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1032006</td>
+<td>No record found for given combination</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1032004</td>
+<td>Company of user doesn&rsquo;t have the permissions to assign endpoint for this company</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080001</td>
+<td>Link name length cannot be more than 20 characters</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080002</td>
+<td>Description cannot be more than 240 characters</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080003</td>
+<td>Bandwidth must be between 1-10 Gbps</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080004</td>
+<td>Duration cannot be more than <3 years></td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080005</td>
+<td>Missing or invalid latency value</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080006</td>
+<td>Missing or invalid renewal option</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080009</td>
+<td>Bandwidth cannot be less than 1000 Kbps</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080010</td>
+<td>Duration cannot be less than 1hr.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080012</td>
+<td>Mandatory parameter &lsquo;{parameter name}&rsquo; missing from requested json</td>
+<td>Json Validation</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1080071</td>
+<td>Communication with EIS API failed</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080019</td>
+<td>Link is already on the Suspend Status</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080020</td>
+<td>Link is not in Active Status</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080021</td>
+<td>Link is already in Active status</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080034</td>
+<td>The Request Json is Invalid ( {parameter name} )</td>
+<td>Json Validation</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080042</td>
+<td>Link could not be created/updated because requested bandwidth exceeds MAX available bandwidth for shared vPort</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080046</td>
+<td>Link is not deployed yet</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080047</td>
+<td>No linkuuid found in request</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080055</td>
+<td>No Link found in request</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080062</td>
+<td>Link in deploying state could not delete. Please try after some time</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080064</td>
+<td>Link already updated</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>401</td>
+<td>1080026</td>
+<td>Authentication Failed</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080050</td>
+<td>Request ContractID not matched with LinkID.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080050</td>
+<td>Request ContractID not matched with LinkID.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080076</td>
+<td>Vports are not deployed</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1080080</td>
+<td>Endpoints used for Link creation not part of given topology.</td>
+<td>Error</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1110000</td>
+<td>Basic Error</td>
+<td>Details for error</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1110101</td>
+<td>Validation error: key missing</td>
+<td>Missing key &lsquo;{key_name}&lsquo;{additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110102</td>
+<td>Validation error: using deprecated key</td>
+<td>Using deprecated key &lsquo;{key_name}&lsquo;{additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110103</td>
+<td>Validation error: wrong data type</td>
+<td>Wrong data type for key &lsquo;{key_name}&lsquo;{additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110104</td>
+<td>Validation error: wrong length</td>
+<td>Wrong length of value &lsquo;{key_name}&lsquo;{additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110105</td>
+<td>Validation error: unacceptable value</td>
+<td>Wrong value for key &lsquo;{key_name}&rsquo; = {key_value}. Allowed values: {alloved_values} {additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110106</td>
+<td>Validation error: wrong mix/max value</td>
+<td>Wrong value for key &lsquo;{key_name}&rsquo; = {key_value}. Allowed values: min {min}, max {max} {additional_note}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110107</td>
+<td>Validation error: wrong content-type</td>
+<td>Wrong CONTENT_TYPE {content_type}. Available CONTENT_TYPE: &lsquo;application/json&rsquo;, &lsquo;multipart/form-data&rsquo;</td>
+</tr>
+
+<tr>
+<td>415</td>
+<td>1110108</td>
+<td>Validation error: file is too big</td>
+<td>File is bigger than {mb}MB</td>
+</tr>
+
+<tr>
+<td>406</td>
+<td>1110109</td>
+<td>Validation error: invalid file format</td>
+<td>Invalid File format {file_content_type}. Available formats {available_mime_types}</td>
+</tr>
+
+<tr>
+<td>415</td>
+<td>1110110</td>
+<td>Validation error: missed request body</td>
+<td>Missed request body</td>
+</tr>
+
+<tr>
+<td>406</td>
+<td>1110111</td>
+<td>Validation error: missed/invalid contact information</td>
+<td>Missed/invalid contact information</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110112</td>
+<td>Validation error: invalid value of key &lsquo;id&rsquo;</td>
+<td>Invalid value of key &lsquo;id&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110113</td>
+<td>Validation error: can&rsquo;t create new object with PUT method</td>
+<td>You can&rsquo;t create object with PUT method</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110114</td>
+<td>Validation error: invalid Email format</td>
+<td>Invalid Email format</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110115</td>
+<td>Validation error: invalid Website format</td>
+<td>Invalid Website format. Use http(s):</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110116</td>
+<td>Validation error: tags are not valid</td>
+<td>Tags is not valid {tags_field}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110117</td>
+<td>Validation error: classifications are not valid</td>
+<td>Classifications are not valid {classifications_field}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110118</td>
+<td>Validation error: flavors are not valid</td>
+<td>Flavors are not valid {flavors_field}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110119</td>
+<td>Validation error: flavors are empty</td>
+<td>Flavors are not valid {flavors_field}. It\&rsquo;s empty</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110120</td>
+<td>Validation error: flavor canot be used</td>
+<td>Flavor is not valid {flavor}. It can be used only customer with {customer_id} or by Admin.</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110121</td>
+<td>Validation error: flavor is duplicated</td>
+<td>Flavor is not valid {flavor}. Dublicate in {flavors_price}</td>
+</tr>
+
+<tr>
+<td>409</td>
+<td>1110122</td>
+<td>Validation error: flavor is not valid, no pk key</td>
+<td>Flavor is not valid {flavor}. pk is missed.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110123</td>
+<td>Validation error: flavor is not valid, not float</td>
+<td>Flavor is not valid {flavor}. Price is not float.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110124</td>
+<td>Validation error: flavor is not valid, price lower than 0</td>
+<td>Flavor is not valid {flavor}. Price is lower than 0</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110125</td>
+<td>Validation error: flavor is not valid, price is invalid</td>
+<td>Flavor is not valid {flavor}. Price should have two digits after dot.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110126</td>
+<td>Validation error: flavor is not valid, price is not valid</td>
+<td>Flavor is not valid {flavor}. Price begins from 0. Second char should be dot.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110127</td>
+<td>Validation error: wrong type for &lsquo;publish_date&rsquo;</td>
+<td>Invalid type for publish_date. It should be string</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110128</td>
+<td>Validation error: wrong value for &lsquo;publish_date&rsquo;</td>
+<td>Publish Date is not valid {publish_date}. It should be digit</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110129</td>
+<td>Validation error: wrong length for &lsquo;publish_date&rsquo;</td>
+<td>Publish Date is not valid {publish_date}. Length not equal 13</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110130</td>
+<td>Validation error: wrong time for &lsquo;publish_date&rsquo;</td>
+<td>Publish_date is not valid {publish_date}. Publish Date should be later than now.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110131</td>
+<td>Validation error: wrong type for &lsquo;eol&rsquo;</td>
+<td>Invalid type for &lsquo;End of Life&rsquo;. It should be string</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110132</td>
+<td>Validation error: wrong value for &lsquo;eol&rsquo;</td>
+<td>&lsquo;End of Life&rsquo; is not valid {eol}. It should be digit</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110133</td>
+<td>Validation error: wrong length for &lsquo;eol&rsquo;</td>
+<td>&lsquo;End of Life&rsquo; is not valid {eol}. Length not equal 13</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110134</td>
+<td>Validation error: wrong time for &lsquo;eol&rsquo;</td>
+<td>&lsquo;End of Life&rsquo; is not valid {eol}. &lsquo;End of Life&rsquo; should be later than now.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110135</td>
+<td>Validation error: wrong type for &lsquo;eos&rsquo;</td>
+<td>Invalid type for &lsquo;End of Sale&rsquo;. It should be string</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110136</td>
+<td>Validation error: wrong value for &lsquo;eos&rsquo;</td>
+<td>&lsquo;End of Sale&rsquo; is not valid {eos}. It should be digit</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110137</td>
+<td>Validation error: wrong length for &lsquo;eos&rsquo;</td>
+<td>&lsquo;End of Sale&rsquo; is not valid {eos}. Length not equal 13</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110138</td>
+<td>Validation error: wrong time for &lsquo;eol&rsquo;</td>
+<td>&lsquo;End of Sale&rsquo; is not valid {eos}. &lsquo;End of Sale&rsquo; should be later than now.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110139</td>
+<td>Validation error: &lsquo;eos&rsquo; not less than &lsquo;eol&rsquo;</td>
+<td>End Of Sold should be less than End Of Life.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110140</td>
+<td>Validation error: &lsquo;eos&rsquo; is not defined with &lsquo;eol&rsquo;</td>
+<td>End Of Sold and End Of Life should be defined together</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110141</td>
+<td>Validation error: invalid date logic</td>
+<td>Publish date should be less than End Of Sold. And End Of Sold should be less than End Of Life.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110142</td>
+<td>Validation error: url is invalid</td>
+<td>URL is not valid {url}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110143</td>
+<td>Validation error: glance_properties isn&rsquo;t JSON serialized</td>
+<td>glance_properties = {glance_properties} Is not in JSON format.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110144</td>
+<td>Validation error: glance_properties isn&rsquo;t object</td>
+<td>glance_properties = {glance_properties} Is not an object.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110145</td>
+<td>Validation error: in glance_properties key isn&rsquo;t string</td>
+<td>glance_properties = {glance_properties} Key &lsquo;{key}&rsquo; in object should be string</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110146</td>
+<td>(&ldquo;Validation error: in glance_properties value has</td>
+<td>glance_properties = {glance_properties} Value &lsquo;{value}&rsquo; in object should be one of following type: string, integer, bool</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110147</td>
+<td>Validation error: glance_image is invalid</td>
+<td>Glance Image File is not valid {glance_image}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110148</td>
+<td>Validation error: glance_image is already used</td>
+<td>Glance Image File is not valid {glance_image}. This file is already used by another Image.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110149</td>
+<td>Validation error: name is already used</td>
+<td>Classification Name &lsquo;{name}&rsquo; is already used</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110150</td>
+<td>Value isn&rsquo;t in JSON format</td>
+<td>Can&rsquo;t parse json for value by key &lsquo;{key}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110151</td>
+<td>Cant create new entity during Image creating</td>
+<td>You can&rsquo;t create &lsquo;{entity_name}&rsquo; due to create image</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110152</td>
+<td>&lsquo;comment&rsquo; field is empty</td>
+<td>Please. Input comment.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110153</td>
+<td>Body is not in JSON format</td>
+<td>Body isn&rsquo;t in JSON format</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1110154</td>
+<td>JSONed body is not object</td>
+<td>JSONed body is not object</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110155</td>
+<td>Invalid action</td>
+<td>Invalid action &lsquo;{action}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110156</td>
+<td>Method Not Allowed</td>
+<td>Allowed methods: {allowed_methods}</td>
+</tr>
+
+<tr>
+<td>405</td>
+<td>1110201</td>
+<td>Can&rsquo;t update Image, wrong status</td>
+<td>Can&rsquo;t update Image in status &lsquo;{image_status}&rsquo;</td>
+</tr>
+
+<tr>
+<td>406</td>
+<td>1110202</td>
+<td>Can&rsquo;t create Image using &lsquo;id&rsquo; field</td>
+<td>You cannot create Image using &lsquo;id&rsquo; field</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110203</td>
+<td>Glance Image can&rsquo;t be deleted. Wrong Image status</td>
+<td>Image that related to this GlanceImage in status &lsquo;{status}&rsquo;. Required &lsquo;Draft&rsquo; or &lsquo;Rejected&rsquo; status for this action</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110204</td>
+<td>Can&rsquo;t delete Image, wrong status of Image</td>
+<td>You can&rsquo;t delete image with status {status}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110205</td>
+<td>File uploading is not completed</td>
+<td>File uploading is not completed</td>
+</tr>
+
+<tr>
+<td>406</td>
+<td>1110206</td>
+<td>No file for uploading</td>
+<td>Image doesn&rsquo;t have file for uploading</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110207</td>
+<td>No file in AWS</td>
+<td>There is no file in AWS for this Image</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110208</td>
+<td>Image already in &lsquo;my images&rsquo;</td>
+<td>Your customer account already have this image.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110209</td>
+<td>Image is not in &lsquo;my images&rsquo;</td>
+<td>This image is not to add in &lsquo;my images&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110210</td>
+<td>Can&rsquo;t delete Vendor Visit Card</td>
+<td>Vendor Visit Card can\&rsquo;t be deleted. It has Image in following statuses: &lsquo;Off sale&rsquo;, &lsquo;Unpublished&rsquo;, &lsquo;Published&rsquo;, &lsquo;Approved&rsquo;, &lsquo;Ready for Verification&rsquo;, &lsquo;Uploading&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110211</td>
+<td>Vendor Visit Card already exists</td>
+<td>User with ID &lsquo;{user_id}&rsquo; already has Vendor Visit Card</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110212</td>
+<td>This image can not be approved</td>
+<td>Image is not in &lsquo;Ready for Verification&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110213</td>
+<td>This image can not be send for approval</td>
+<td>Image is not in &lsquo;Draft&rsquo; or &lsquo;Vendor Verification&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110214</td>
+<td>This image can not be rejected</td>
+<td>Image is not in &lsquo;Ready for Verification&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110215</td>
+<td>Vendor verification can not be canceled</td>
+<td>Image is not in &lsquo;Vendor Verification&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110216</td>
+<td>Image uploading can not be canceled</td>
+<td>Image is not in &lsquo;Uploading&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110217</td>
+<td>Image can not be published, wrong status</td>
+<td>This image can not be published. Image in state &lsquo;{status}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110218</td>
+<td>Image can not be unpublished</td>
+<td>Image is not in &lsquo;Published&rsquo; status</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110219</td>
+<td>Image can not be added in &lsquo;my images&rsquo;</td>
+<td>This image can not be added to &lsquo;My images&rsquo;. Image in status &lsquo;{status}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110220</td>
+<td>Image can not be removed from &lsquo;my images&rsquo;</td>
+<td>This image can not be removed from &lsquo;My images&rsquo;. Image in status &lsquo;{status}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110221</td>
+<td>Partner can not be added</td>
+<td>You can&rsquo;t add partners for this Image. You are not vendor of this image</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110222</td>
+<td>Partner can not be removed</td>
+<td>You can&rsquo;t remove partners for this Image. You are not vendor of this image</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110223</td>
+<td>Can not perform action</td>
+<td>This flavor is used</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110224</td>
+<td>Can not perform action</td>
+<td>This classification is used</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110225</td>
+<td>Image already has Glance Image</td>
+<td>Image with ID = &lsquo;{image_id}&rsquo; already has GlanceImage with ID = &lsquo;{glance_image_id}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110226</td>
+<td>Image and Flavor are incompatible</td>
+<td>Flavor with id &lsquo;{flavor_id}&rsquo; does\&lsquo;n have relation to Image with id {image_id}</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1110301</td>
+<td>Can&rsquo;t update Image, wrong status, not admin</td>
+<td>You cannot edit images in Ready for Verification status. You are not MP admin</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110302</td>
+<td>Can&rsquo;t update Image, wrong status, not vendor</td>
+<td>Can&rsquo;t update Image in status &lsquo;{image_status}&lsquo;. You are not MP Vendor</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110303</td>
+<td>User is not vendor</td>
+<td>User with ID &lsquo;{user_id}&rsquo; is not vendor</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110304</td>
+<td>User is not vendor for requested resource</td>
+<td>User with ID {user_id} doesn&rsquo;t have relation to Customer with ID {customer_id}</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110305</td>
+<td>User is not MP admin</td>
+<td>User with ID &lsquo;{user_id}&rsquo; is not MP admin</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110306</td>
+<td>User can&rsquo;t get requested Image</td>
+<td>User &lsquo;{user_id}&rsquo; can&rsquo;t get Image with status &lsquo;{status}&rsquo; and owner &lsquo;{owner_customer_id}&rsquo;</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110307</td>
+<td>Image can not be published, not admin</td>
+<td>Image status = &lsquo;Unpublished&rsquo;. You are not admin</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110308</td>
+<td>Image can not be published, not owner</td>
+<td>Image status = &lsquo;Approved&rsquo;. You are not owner for this image</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110309</td>
+<td>User can&rsquo;t deploy Image</td>
+<td>User &lsquo;{user_id}&rsquo; can&rsquo;t deploy Image with status &lsquo;{status}&rsquo; and owner &lsquo;{owner_customer_id}&rsquo;</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1110310</td>
+<td>Unauthorized action</td>
+<td>Action is not allowed for User due to authorization logic</td>
+</tr>
+
+<tr>
+<td>401</td>
+<td>1110401</td>
+<td>There is no Glance Image</td>
+<td>There is no Glance Image with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110402</td>
+<td>There is no Image</td>
+<td>There is no Image with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110403</td>
+<td>There is no Flavor</td>
+<td>There is no Flavor with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110404</td>
+<td>There is no Vendor Visit Card</td>
+<td>There is no Vendor Visit Card with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110405</td>
+<td>There is no Partner</td>
+<td>There is no Partner with customer_id &lsquo;{customer_id}&rsquo; and Image with ID &lsquo;{id}&rsquo;</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110406</td>
+<td>There is no file</td>
+<td>File with id = &lsquo;{id}&rsquo; doesn&rsquo;t exist</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110407</td>
+<td>There is no Tag</td>
+<td>There is no Tag with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110408</td>
+<td>There is no Classification</td>
+<td>There is no Classification with ID {id}</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1110501</td>
+<td>AMQP server is not available</td>
+<td>AMQP server is not available. Please try again later.</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1130000</td>
+<td>Something went wrong</td>
+<td>Something went wrong</td>
+</tr>
+
+<tr>
+<td>415</td>
+<td>1130005</td>
+<td>Method not allowed</td>
+<td><HTTP method name and information about supported methods></td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1130100</td>
+<td>Input document contains errors</td>
+<td><Information about mistake></td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1130200</td>
+<td>NSO model exception</td>
+<td>Business Logic Error</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1130301</td>
+<td>Action is not permitted</td>
+<td><Empty></td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1130302</td>
+<td>Authorization error</td>
+<td>Requested action is not permitted</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1130400</td>
+<td>Not found</td>
+<td><Additional information></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1130500</td>
+<td>Backend issue</td>
+<td>Any backend returned an error</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1130600</td>
+<td>Connectivity issue</td>
+<td>Backend service is not reachable</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1131000</td>
+<td>An unknown NSO exception occurred</td>
+<td>Unknown NSO error</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1131100</td>
+<td>Engine runtime exception</td>
+<td>Unexpected NSO runtime error</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1131101</td>
+<td>NSD is not empty</td>
+<td>Action can&rsquo;t be performed because NSD with UUID {nsd_uuid} is not empty</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1131102</td>
+<td>NSD has wrong status</td>
+<td>Action can&rsquo;t be performed because NSD with UUID {nsd_uuid} has status &lsquo;{status}&rsquo;. Expected &lsquo;{expected_status}&rsquo;</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1132001</td>
+<td>Unique violation</td>
+<td><Depends on many factors></td>
+</tr>
+
+<tr>
+<td>409</td>
+<td>1132003</td>
+<td>Endpoint {endpoint_name} type can not be updated</td>
+<td><Empty></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1210000</td>
+<td>Unknown XCNG Error</td>
+<td>Something went wrong</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1210300</td>
+<td>Authorization error</td>
+<td>Requested action is not permitted</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1210501</td>
+<td>Error occurred during call in EIS</td>
+<td>EIS response message: {eis_message}</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1210601</td>
+<td>Request failed due to some network issue</td>
+<td>Request failed due to some network issue</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1210100</td>
+<td>Input document contains errors</td>
+<td><Information about validation error></td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1240000</td>
+<td>Internal Error</td>
+<td>Something went wrong</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>1240600</td>
+<td>Backend Error</td>
+<td>(EIS / LIS/ IS ) communication failure</td>
+</tr>
+
+<tr>
+<td>401</td>
+<td>1240001</td>
+<td>Unauthorized</td>
+<td>Access DeniedProvided credentials are invalid</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1240300</td>
+<td>Permission denied</td>
+<td>Can&rsquo;t access object with provided credentials</td>
+</tr>
+
+<tr>
+<td>405</td>
+<td>1240005</td>
+<td>Method Not Allowed</td>
+<td>Method Not Allowed</td>
+</tr>
+
+<tr>
+<td>400</td>
+<td>1240100</td>
+<td>Payload is not a JSON</td>
+<td>Payload is not a Valid JSON</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>1240301</td>
+<td>Backend Authorization Issue</td>
+<td>(EIS / LIS) communication failure because of the Token</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>1240500</td>
+<td>Object not found</td>
+<td>Topology tag with uuid (<uuid>) not found</td>
+</tr>
+
+<tr>
+<td>409</td>
+<td>1240201</td>
+<td>Status Conflict</td>
+<td>Topology Tag in status <status> can&rsquo;t be <updated/deleted></td>
+</tr>
+
+<tr>
+<td>409</td>
+<td>1240202</td>
+<td>State Conflict</td>
+<td>Topology Tag can&rsquo;t be deleted because <EIS/LIS> using it.</td>
+</tr>
+
+<tr>
+<td>422</td>
+<td>1240102</td>
+<td>Validation Error</td>
+<td>Payload contains invalid values</td>
+</tr>
+
+<tr>
+<td>410</td>
+<td>1240210</td>
+<td>Tag is already deleted</td>
+<td>Topology Tag in status &lsquo;deleted&rsquo; can&rsquo;t be &lsquo;deleted&rsquo;</td>
+</tr>
+</tbody>
+</table>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the MIT license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://kawaja.github.io/apis/apis/" title="API Documentation">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              API Documentation
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://kawaja.github.io/apis/programmable-network/examples/" title="Examples">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Examples
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://kawaja.github.io/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

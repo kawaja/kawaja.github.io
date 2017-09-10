@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apis on API Documentation</title>
+    <link>https://kawaja.github.io/apis/</link>
+    <description>Recent content in Apis on API Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
+    <lastBuildDate>Sat, 27 May 2017 22:08:07 +1000</lastBuildDate>
+    
+	<atom:link href="https://kawaja.github.io/apis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API Documentation</title>
+      <link>https://kawaja.github.io/apis/apis/</link>
+      <pubDate>Sat, 27 May 2017 22:08:07 +1000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/apis/</guid>
+      <description>API Documentation This is to see how this is structured
+How To This is how you use it</description>
+    </item>
+    
+    <item>
+      <title>Error Handling</title>
+      <link>https://kawaja.github.io/apis/programmable-network/error-handling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/programmable-network/error-handling/</guid>
+      <description>JSON Error Messages The Programmable Network API uses an extended error message format with unique error codes, a descriptive message and an auxiliary message generally describing the error in more detail. The schema of an error response is:
+{ &amp;quot;type&amp;quot;: &amp;quot;object&amp;quot;, &amp;quot;properties&amp;quot;: { &amp;quot;error-code&amp;quot;: { &amp;quot;required&amp;quot;: true, &amp;quot;type&amp;quot;: &amp;quot;integer&amp;quot; }, &amp;quot;error-message&amp;quot;: { &amp;quot;required&amp;quot;: true, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot; }, &amp;quot;error-auxiliary&amp;quot;: { &amp;quot;required&amp;quot;: true, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot; } } }  An example:</description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://kawaja.github.io/apis/programmable-network/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/programmable-network/examples/</guid>
+      <description> Data Centre Interconnect Cloud Gateway Firewall Inter-company Exchange </description>
+    </item>
+    
+    <item>
+      <title>Key Concepts</title>
+      <link>https://kawaja.github.io/apis/programmable-network/key-concepts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/programmable-network/key-concepts/</guid>
+      <description>The Programmable Network is based on the core concepts of an Endpoint and a Link. At a simplistic level, a Link connects two Endpoints together (via VPorts), allowing traffic to flow between them (according to one or more Contracts). Endpoints There are several types of Endpoint, but they all have the following characteristics:
+ one or more VPorts connect via Links to other Endpoints are located in a Data Centre  Current endpoint types:</description>
+    </item>
+    
+    <item>
+      <title>Master Data</title>
+      <link>https://kawaja.github.io/apis/programmable-network/master-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/programmable-network/master-data/</guid>
+      <description>Link/Contract Status Codes These codes apply to both Links and Contracts.
+   Status Code Description     1 Active   2 Inactive   3 Expired   4 Deleted   5 Suspend   6 New   7 Deploying   8 Deployed   9 Deleting   10 Expiring   11 Updating   12 Failed    Interface Types The following interface types are used when requesting or reviewing Physical Ethernet Ports in a Datacentre.</description>
+    </item>
+    
+    <item>
+      <title>Programmable Network</title>
+      <link>https://kawaja.github.io/apis/programmable-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kawaja.github.io/apis/programmable-network/</guid>
+      <description>Introduction Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services. Once you are connected to the platform on one or multiple POP (point of presence), you can start creating those services based on the use case that you want to accomplish.</description>
+    </item>
+    
+  </channel>
+</rss>

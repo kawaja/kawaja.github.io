@@ -389,7 +389,7 @@
 
 <h2 id="virtual-network-functions-marketplace">Virtual Network Functions (Marketplace)</h2>
 
-<p>The Programmable Network Marketplace feature provides a mechanism to use Virtual Network Functions that Telstra or network device vendors have made available.</p>
+<p>The Programmable Network Marketplace feature provides a mechanism to use virtual network appliances that Telstra or appliance vendors have made available.</p>
 
 <p>Once created, Virtual Network Functions communicate with the Programmable Network via virtual interfaces, which can be connected to Links via VPorts.</p>
 
@@ -414,9 +414,9 @@
 
 <p>See <a href="../master-data#vnf-status-codes">VNF Status Codes</a> for a list of status codes associated with VNFs.</p>
 
-<h2 id="data-centres">Data Centres</h2>
+<h2 id="data-centre">Data Centre</h2>
 
-<p>Data centres represent the physical location of Endpoints in the Programmable Network. In particular, each Physical Port, VNF and Exchange Endpoint is associated with a specific data centre.</p>
+<p>Data centres represent the physical location of an Endpoint in the Programmable Network. In particular, each Physical Port, VNF and Exchange Endpoint is associated with a specific data centre.</p>
 
 <p>APIs which relate to Data Centres includes:</p>
 
@@ -459,7 +459,7 @@
 <li><code>PUT /1.0.0/exchange-incoming/<em>uuid</em>/</code> &ndash; Update an incoming Exchange connection request</li>
 </ul>
 
-<h2 id="topologies-and-tags">Topologies and Tags</h2>
+<h2 id="topology-and-tag">Topology and Tag</h2>
 
 <p>A <strong>Topology</strong> is a subset of an account&rsquo;s resources (Links, Endpoints, etc.) that are logically grouped together. In the web interface, topologies are represented in a canvas view where various objects can be placed together.</p>
 
@@ -478,7 +478,7 @@
 <li><code>GET /ttms/1.0.0/topology_tag/<em>topology_tag_uuid</em>/objects/</code> &ndash; List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.</li>
 </ul>
 
-<h2 id="customers-users-and-accounts">Customers, Users and Accounts</h2>
+<h2 id="customer-user-and-account">Customer, User and Account</h2>
 
 <p>APIs which relate to Customers, Users and Accounts include:</p>
 
@@ -509,7 +509,7 @@
 
 <ul>
 <li><code>GET /1.0.0/account/<em>customeruuid</em></code> &ndash; Get the account information for the specified customer</li>
-<li><code>GET /1.00/account/<em>customeruuid</em>/user</code> &ndash; List all users associated with the customer</li>
+<li><code>GET /1.0.0/account/<em>customeruuid</em>/user</code> &ndash; List all users associated with the customer</li>
 </ul>
 
 <p>Users:</p>
@@ -541,7 +541,7 @@
 
 <!-- TODO: need to understand more about customer tags - specifically what the parent/child concepts are for and how they are used-->
 
-<!-- TODO: need to udnerstand the GET child cusotmer user information /is/1.0.0/customer/{customerUUID}/user/{useruuid}-->
+<!-- TODO: need to udnerstand the GET child customer user information /is/1.0.0/customer/{customerUUID}/user/{useruuid}-->
 
 <!-- TODO: does activate/deactivate user belong here?-->
 

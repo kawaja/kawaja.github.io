@@ -296,8 +296,132 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services.
-Once you are connected to the platform on one or multiple POP (point of presence), you can start creating those services based on the use case that you want to accomplish.</p>
+<table style="border:none;box-shadow:none;padding:0 0 0 0;margin:0">
+<tr><td style="border:none">
+<p>Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services.</p>
+<p>Once you are connected to the platform on one or multiple POP (point of presence), you can start creating those services based on the use case that you want to accomplish.</p>
+</td>
+<td style="width: 20%;border:none">
+<img src="https://kawaja.github.io/images/pn-logo.png">
+</td></tr></table>
+
+<h2 id="features">Features</h2>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="./key-concepts#endpoint">Endpoint</a></td>
+<td>An <strong>Endpoint</strong> is point in the network that can be connected with a point-to-point <strong>Link</strong>, such as a physical port, a Cloud Provider, a Virtual Network Function or an interconnect point with an IPVPN network such as <a href="https://www.telstra.com.au/business-enterprise/solutions/network-services/networks/vpn">Connect IP&reg;</a> in Australia or <a href="https://www.telstraglobal.com/products/connectivity/virtual-private-networks/ipvpn">Telstra IPVPN</a> globally.</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#link">Link</a></td>
+<td>A <strong>Link</strong> is a mechanism to create a Layer 2 point-to-point connection between two <strong>Endpoints</strong>, allowing traffic to flow according to the conditions of one or more <strong>Contracts</strong> assigned to the <strong>Link</strong></td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#contract">Contract</a></td>
+<td>A <strong>Contract</strong> describes the commercial terms associated with a link (such as duration, billing account and price) and determines the characteristics of the traffic flowing across the link (such as bandwidth, latency, etc.)</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#virtual-ports-vport">Virtual Port</a></td>
+<td>A <strong>VPort</strong> can be thought of as a connection point on an <strong>Endpoint</strong>, allowing multiple <strong>Links</strong> to be connected to the same <strong>Endpoint</strong></td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#virtual-network-functions-marketplace">Virtual Network Functions</a></td>
+<td>A <strong>Virtual Network Function</strong> is a virtual appliance which can operate within the Programmable Network, providing more sophisticated services, such as routing, firewalling, load-balancing, encryption, etc.</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#virtual-network-functions-marketplace">Marketplace</a></td>
+<td>The Programmable Network <strong>Marketplace</strong> provides a way for Telstra and network appliance vendors to publish a <strong>Virtual Network Function</strong> which users can deploy in the Programmable Network</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#data-centre">Data Centre</a></td>
+<td>Each physical <strong>Endpoint</strong> of the Programmable Network (such as physical port, <strong>Exchange</strong> connection, etc.) are located in a <strong>Data Centre</strong></td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#global-exchange">Global Exchange</a></td>
+<td>The <strong>Global Exchange</strong> provides a mechanism to interconnect with external networks and services, such as Cloud Providers, Telstra IPVPN services, 3rd-party Networks and other Programmable Network users</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#topology-and-tag">Topologies</a></td>
+<td>Multiple resources created in an account&rsquo;s Programmable Network can be grouped in a <strong>Topology</strong> which easily allows logical separation of parts of the network for users (e.g. Production vs. Lab networks)</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#topology-and-tag">Tags</a></td>
+<td>A <strong>Tag</strong> is the labels by which users refer to a <strong>Topology</strong></td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#customer-user-account">Customer</a></td>
+<td>A <strong>Customer</strong> owns a Programmable Network <strong>Account</strong>. A <strong>Customer</strong> can have a parent-child relationship which allows children <strong>Customers</strong> to be created for departments, projects, etc.</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#customer-user-account">Account</a></td>
+<td>An <strong>Account</strong> holds details</td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#customer-user-account">User</a></td>
+<td>A <strong>User</strong></td>
+</tr>
+
+<tr>
+<td><a href="./key-concepts#customer-user-account">Statistics</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="example-use-cases">Example Use Cases</h2>
+
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="./examples#data-centre-interconnect">Data Centre Interconnect</a></td>
+<td>Flexible bandwidth between two public data centres</td>
+</tr>
+
+<tr>
+<td><a href="./examples#cloud-connectivity">Cloud Connectivity</a></td>
+<td>Connect to Cloud Providers, such as Amazon AWS, Microsoft Azure, IBM BlueMix (SoftLayer), Google Compute Platform, etc.</td>
+</tr>
+
+<tr>
+<td><a href="./examples#firewall">Firewall</a></td>
+<td>Use a firewall Virtual Network Function from the <a href="./key-concepts#virtual-network-functions-marketplace">Marketplace</a> to secure traffic between different endpoints (e.g. Corporate IPVPN and a Cloud Provider)</td>
+</tr>
+
+<tr>
+<td><a href="./examples#inter-company-exchange">Inter-Company Exchange</a></td>
+<td>Use the <a href="./key-concepts#global-exchange">Global Exchange</a> feature to create connections to other Programmable Network customers</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="getting-access">Getting Access</h2>
 
 <p>The Programmable Network API is available to all customers who have registered to use the Programmable Network. To register, please contact your account representative.</p>
 
@@ -307,7 +431,7 @@ Once you are connected to the platform on one or multiple POP (point of presence
 
 <p>To create a session token, use the <code>/auth/generatetoken</code> endpoint. The token will expire in 115 minutes.</p>
 
-<pre><code class="language-sh">curl -X POST -H 'Content-Type: application/json' \
+<pre><code class="language-sh">curl -X POST -H 'Accepts: application/json' \
   -d 'grant_type=password&amp;username=*accountid*/*username*&amp;password=*password*' \
   https://penapi.pacnetconnect.com/1.0.0/auth/generatetoken
 </code></pre>

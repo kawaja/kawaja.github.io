@@ -410,6 +410,12 @@
 <li><code>POST /vnfds/1.0.0/vnf/<em>vnfuuid</em>/resume/</code> &ndash; Resume the specified VNF</li>
 <li><code>POST /vnfds/1.0.0/vnf/<em>vnfuuid</em>/reboot/</code> &ndash; Reboot the specified VNF</li>
 <li><code>GET /vnfds/1.0.0/vnf/<em>vnfuuid</em>/</code> &ndash; Get information about the specified VNF</li>
+<li><code>GET /bms/1.0.0/backup</code> &ndash; Create backup from VNF</li>
+<li><code>GET /bms/1.0.0/backup/<em>uuid</em></code> &ndash; Get information about the specified backup</li>
+<li><code>GET /bms/1.0.0/backup/vnf/<em>vnfuuid</em></code> &ndash; List available backups for the specified VNF</li>
+<li><code>DELETE /bms/1.0.0/backup/<em>uuid</em></code> &ndash; Delete specified backup</li>
+<li><code>POST /bms/1.0.0/backup/vnf/<em>vnfuuid</em>/delete</code> &ndash; Delete list of backups associated with specified VNF</li>
+<li><code>POST /bms/1.0.0/backup/<em>uuid</em>/restore</code> &ndash; Restsore VNF from specified backup</li>
 </ul>
 
 <p>See <a href="../master-data#vnf-status-codes">VNF Status Codes</a> for a list of status codes associated with VNFs.</p>
@@ -458,6 +464,49 @@
 <li><code>POST /1.0.0/exchange-incoming/<em>uuid</em>/close/</code> &ndash; Reject an incoming Exchange connection request</li>
 <li><code>PUT /1.0.0/exchange-incoming/<em>uuid</em>/</code> &ndash; Update an incoming Exchange connection request</li>
 </ul>
+
+<h2 id="telstra-global-ipvpn">Telstra Global IPVPN</h2>
+
+<p>The Programmable Network allows users to connect links to Telstra&rsquo;s Global IPVPN service.</p>
+
+<p>APIs which relate to the Telstra Global IPVPN include:</p>
+
+<ul>
+<li><code>GET /gwapi/1.0.0/dcs</code> &ndash; Get locations where IPVPN interconnect service can be provisioned</li>
+<li><code>POST /gwapi/1.0.0/<em>service_uuid</em>/customer/<em>customer_id</em>/endpoint</code> &ndash; Create IPVPN endpoint</li>
+<li><code>GET /gwapi/1.0.0/<em>service_uuid</em>/customer/<em>customer_id</em>/endpoint</code> &ndash; List IPVPN endpoints</li>
+<li><code>GET /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Get information about the specified IPVPN endpoint</li>
+<li><code>POST /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Update the specified IPVPN endpoint</li>
+<li><code>DELETE /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Update the specified IPVPN endpoint</li>
+<li><code>POST /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport</code> &ndash; Create IPVPN VPort</li>
+<li><code>GET /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport</code> &ndash; List IPVPN VPorts</li>
+<li><code>GET /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport/<em>vportuuid</em></code> &ndash; Get information about the specified IPVPN VPort</li>
+<li><code>DELETE /gwapi/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport/<em>vportuuid</em></code> &ndash; Delete the specified IPVPN VPort</li>
+<li><code>GET /gwapi/1.0.0/<em>service_uuid</em>/exchange_provider</code> &ndash; Get a profile summary about the customer&rsquo;s IPVPN services</li>
+</ul>
+
+<h2 id="telstra-next-ip">Telstra Next IP</h2>
+
+<p>The Programmable Network allows users to connect links to Telstra&rsquo;s Next IP (Australian IPVPN) service.</p>
+
+<p>APIs which relate to the Telstra Next IP include:</p>
+
+<ul>
+<li><code>GET /ipvpn/1.0.0/dcs</code> &ndash; Get locations where Next IP interconnect service can be provisioned</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/customer/<em>customer_id</em>/endpoint</code> &ndash; List Next IP endpoints</li>
+<li><code>POST /ipvpn/1.0.0/<em>service_uuid</em>/customer/<em>customer_id</em>/endpoint</code> &ndash; Create Next IP endpoint</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Get information about the specified Next IP endpoint</li>
+<li><code>POST /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Update the specified Next IP endpoint</li>
+<li><code>DELETE /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em></code> &ndash; Delete the specified Next IP endpoint</li>
+<li><code>POST /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport</code> &ndash; Create Next IP VPort</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport</code> &ndash; List Next IP VPorts</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport/<em>vportuuid</em></code> &ndash; Get information about the specified Next IP VPort</li>
+<li><code>DELETE /ipvpn/1.0.0/<em>service_uuid</em>/endpoint/<em>endpointuuid</em>/vport/<em>vportuuid</em></code> &ndash; Delete the specified Next IP VPort</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/exchange_provider</code> &ndash; Get a profile summary about the customer&rsquo;s Next IP services</li>
+<li><code>GET /ipvpn/1.0.0/<em>service_uuid</em>/fnn</code> &ndash; Get a list of the customer&rsquo;s available Next IP services</li>
+</ul>
+
+<p>The FNN in the last call refers to the &ldquo;Full National Number&rdquo; of the Next IP service, which uniquely identifies the Next IP service.</p>
 
 <h2 id="topology-and-tag">Topology and Tag</h2>
 

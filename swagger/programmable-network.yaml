@@ -1,0 +1,1800 @@
+openapi: 3.0.0
+info:
+  title: Telstra Programmable Network API
+  description: >-
+    Telstra Programmable Network is a self-provisioning platform that allows its
+    users to create on-demand connectivity services between multiple end-points
+    and add various network functions to those services. Programmable Network
+    enables to connectivity to a global ecosystem of networking services as well
+    as public and private cloud services. Once you are connected to the platform
+    on one or more POPs (points of presence), you can start creating those
+    services based on the use case that you want to accomplish. The Programmable
+    Network API is available to all customers who have registered to use the
+    Programmable Network.
+
+    To register, please contact your account representative.
+  version: 2.0.1
+  contact:
+    name: Telstra Corporation
+    url: 'https://dev.telstra.com/content/programmable-network-api'
+    email: pnapi-support@team.telstra.com
+servers:
+  - url: 'https://penapi.pacnetconnect.com'
+    description: Production Public API
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      description: OAuth 2 with password grant flow
+      flows:
+        password:
+          tokenUrl: /1.0.0/auth/generatetoken
+          scopes: {}
+  schemas:
+    Error:
+      type: object
+      properties:
+        ns:
+          type: string
+          xml:
+            name: 'xmlns:ams'
+            attribute: true
+        error-code:
+          type: integer
+          example: 1010099
+          xml:
+            name: 'ams:error-code'
+        error-message:
+          type: string
+          xml:
+            name: 'ams:error-message'
+        error-auxiliary:
+          type: string
+          xml:
+            name: 'ams:error-auxiliary'
+      xml:
+        name: 'ams:error'
+  parameters:
+    customeruuid:
+      in: path
+      name: customeruuid
+      description: Unique identifier representing a specific customer
+      schema:
+        type: string
+      required: true
+    endpointuuid:
+      in: path
+      name: endpointuuid
+      description: Unique identifier representing a specific endpoint
+      schema:
+        type: string
+      required: true
+    linkid:
+      in: path
+      name: linkid
+      description: Unique identifier representing a specific link
+      schema:
+        type: string
+      required: true
+    contractid:
+      in: path
+      name: contractid
+      description: Unique identifier representing a specific contract
+      schema:
+        type: string
+      required: true
+    vportuuid:
+      in: path
+      name: vportuuid
+      description: Unique identifier representing a specific virtual port
+      schema:
+        type: string
+      required: true
+    imageid:
+      in: path
+      name: imageid
+      description: Identifier representing a specific VNF image
+      schema:
+        type: string
+      required: true
+    vnfuuid:
+      in: path
+      name: vnfuuid
+      description: Unique identifier representing a specific virtual network function
+      schema:
+        type: string
+      required: true
+    exrequuid:
+      in: path
+      name: exrequuid
+      description: Unique identifier representing a specific exchange request
+      schema:
+        type: string
+      required: true
+    visitcarduuid:
+      in: path
+      name: visitcarduuid
+      description: >-
+        Unique identifier representing a specific exchange visit card (provider
+        description)
+      schema:
+        type: string
+      required: true
+    taguuid:
+      in: path
+      name: taguuid
+      description: Unique identifier representing a specific customer tag
+      schema:
+        type: string
+      required: true
+    topotaguuid:
+      in: path
+      name: topotaguuid
+      description: Unique identifier representing a specific topology tag
+      schema:
+        type: string
+      required: true
+    useruuid:
+      in: path
+      name: useruuid
+      description: Unique identifier representing a specific user
+      schema:
+        type: string
+      required: true
+    startdate:
+      in: path
+      name: startdate
+      description: Start date for statistics query
+      schema:
+        type: string
+      required: true
+    enddate:
+      in: path
+      name: enddate
+      description: End date for statistics query
+      schema:
+        type: string
+      required: true
+    backupuuid:
+      in: path
+      name: backupuuid
+      description: Unique identifier representing a specific VNF backup
+      schema:
+        type: string
+      required: true
+    service_uuid:
+      in: path
+      name: service_uuid
+      description: Unique identifier representing a specific IPVPN or Next IP service (?)
+      schema:
+        type: string
+      required: true
+    customer_id:
+      in: path
+      name: customer_id
+      description: Should this be customeruuid?
+      schema:
+        type: string
+      required: true
+  responses:
+    unauthenticated:
+      description: Missing Token
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: error
+              error-code:
+                type: integer
+                example: 1060052
+              error_description:
+                type: string
+                example: Payload required.
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    forbidden:
+      description: Authorization Failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    methodnotallowed:
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    internalerror:
+      description: Backend Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    invalidrequest:
+      description: Request is not correctly formatted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    objectnotfound:
+      description: Specified object cannot be found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    statusconflict:
+      description: Status onflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+    validationerror:
+      description: Request is invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Error'
+security:
+  - oAuth: []
+paths:
+  /1.0.0/inventory/datacenters:
+    get:
+      summary: Get list of all the data centers
+      tags:
+        - datacentres
+      responses:
+        '200':
+          description: array of data center objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cityname:
+                      type: string
+                    countryname:
+                      type: string
+                    datacentername:
+                      type: string
+                    datacentercode:
+                      type: string
+                    datacenteruuid:
+                      type: string
+                    interfacetypes:
+                      type: array
+                      items:
+                        type: string
+                    operatorname:
+                      type: string
+        '400':
+          $ref: '#/components/responses/invalidrequest'
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/1.0.0/inventory/endpoints/customeruuid/{customeruuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get list of endpoints for a customer
+      tags:
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/endpoint/{endpointuuid}':
+    parameters:
+      - $ref: '#/components/parameters/endpointuuid'
+    get:
+      summary: Get information about the specified endpoint
+      tags:
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/diaendpoint:
+    post:
+      summary: Create DIA Endpoint
+      tags:
+        - endpoints
+        - internet
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/vnfendpoint:
+    post:
+      summary: Create VNF Endpoint
+      tags:
+        - endpoints
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/regularendpoint:
+    post:
+      summary: Create Physical (Port) Endpoint
+      tags:
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/endpointname/endpointuuid/{endpointuuid}':
+    parameters:
+      - $ref: '#/components/parameters/endpointuuid'
+    put:
+      summary: Update VPort name
+      tags:
+        - endpoints
+        - vports
+      responses:
+        '200':
+          description: Success
+    get:
+      summary: Update Endpoint name
+      tags:
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/link:
+    post:
+      summary: Create Link
+      tags:
+        - links
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links/customer/{customeruuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get active Links
+      tags:
+        - links
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links/history/{linkid}':
+    parameters:
+      - $ref: '#/components/parameters/linkid'
+    get:
+      summary: Get Link history
+      tags:
+        - links
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links/{linkid}/contract/{contractid}':
+    parameters:
+      - $ref: '#/components/parameters/linkid'
+      - $ref: '#/components/parameters/contractid'
+    get:
+      summary: Get active Contract by ContractID
+      tags:
+        - contracts
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update active Contract by ContractID
+      tags:
+        - contracts
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links/{linkid}/contract':
+    parameters:
+      - $ref: '#/components/parameters/linkid'
+    post:
+      summary: Create new Contract by ContractID
+      tags:
+        - contracts
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/vnf/vport:
+    post:
+      summary: Create VNF VPort
+      tags:
+        - vports
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/vnf/multivport:
+    post:
+      summary: Create VPort for VNF-VNF Link
+      tags:
+        - vports
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/inventory/regularvport:
+    post:
+      summary: Create Physical VPort
+      description: Create VPort representing a VLAN on a Physical Ethernet Port
+      tags:
+        - vports
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/vport/{vportuuid}':
+    parameters:
+      - $ref: '#/components/parameters/vportuuid'
+    get:
+      summary: Get information about the specified VPort
+      tags:
+        - vports
+      responses:
+        '200':
+          description: Success
+  /1.0.0/marketplace/image:
+    get:
+      summary: List images in the Marketplace
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/marketplace/image/{imageid}':
+    parameters:
+      - $ref: '#/components/parameters/imageid'
+    get:
+      summary: Get information about the specified image
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/marketplace/image/my_images/:
+    get:
+      summary: List images in "My Images"
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/marketplace/image/{imageid}/add_to_my_images/':
+    parameters:
+      - $ref: '#/components/parameters/imageid'
+    post:
+      summary: Add specified image to "My Images"
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/marketplace/image/<id>/remove_from_my_images/:
+    post:
+      summary: Remove specified image from "My Images"
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/vnc/{vnfuuid}/get_console':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    get:
+      summary: Access VNC console details
+      description: Get the URL and authorisation token for the VNC console of a VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/vnfds/1.0.0/vnf/{vnfuuid}/suspend/':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    post:
+      summary: Suspend the specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/vnfds/1.0.0/vnf/{vnfuuid}/resume/':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    post:
+      summary: Resume the specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/vnfds/1.0.0/vnf/{vnfuuid}/reboot/':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    post:
+      summary: Reboot the specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/vnfds/1.0.0/vnf/{vnfuuid}/':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    get:
+      summary: Get information about the specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  /1.0.0/exchange:
+    get:
+      summary: 'List all Exchange providers, with POPs'
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange/{exrequuid}':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    get:
+      summary: Exchange provider details
+      description: Get information about the specified Exchange provider
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  /1.0.0/exchange-outgoing:
+    post:
+      summary: Request a connection to an Exchange provider
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+    get:
+      summary: List outgoing Exchange connection requests
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange-outgoing/{exrequuid}':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    get:
+      summary: Outgoing Exchange connection request details
+      description: Get information about the specified outgoing Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update outgoing Exchange connection request
+      description: Update an existing outgoing Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange-outgoing/{exrequuid}/close/':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    post:
+      summary: Terminate outgoing Exchange connection request
+      description: Terminate an existing outgoing Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  /1.0.0/account/profile/exchange:
+    get:
+      summary: Get the current account's Exchange profile
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  /1.0.0/visitcard:
+    post:
+      summary: Create the Visit Card
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/visitcard/{visitcarduuid}':
+    parameters:
+      - $ref: '#/components/parameters/visitcarduuid'
+    get:
+      summary: View details of the Visit Card
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  /1.0.0/exchange-incoming/:
+    get:
+      summary: List incoming Exchange connection requests
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange-incoming/{exrequuid}':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    get:
+      summary: Incoming Exchange connection request details
+      description: Get information about the specified incoming Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update an incoming Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange-incoming/{exrequuid}/accept/':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    post:
+      summary: Accept an incoming Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/exchange-incoming/{exrequuid}/close/':
+    parameters:
+      - $ref: '#/components/parameters/exrequuid'
+    post:
+      summary: Reject an incoming Exchange connection request
+      tags:
+        - exchange
+      responses:
+        '200':
+          description: Success
+  /ttms/1.0.0/topology_tag:
+    get:
+      summary: List all topology tags
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+    post:
+      summary: Create a named topology tag
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+  '/ttms/1.0.0/topology_tag/{topotaguuid}/':
+    parameters:
+      - $ref: '#/components/parameters/topotaguuid'
+    get:
+      summary: Get information about the specified topology tag
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update a topology tag's name and/or description
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+    delete:
+      summary: Delete a topology tag
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+  '/ttms/1.0.0/topology_tag/{topotaguuid}/objects/':
+    parameters:
+      - $ref: '#/components/parameters/topotaguuid'
+    get:
+      summary: List objects for Topology
+      description: >-
+        List all objects (Endpoints, Links, VPorts, etc.) associated with the
+        topology tag.
+      tags:
+        - topologies
+      responses:
+        '200':
+          description: Success
+  /1.0.0/auth/generatetoken:
+    post:
+      summary: Create an authentication token
+      tags:
+        - authentication
+      security: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  example: password
+                  default: password
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - grant_type
+                - username
+                - password
+      responses:
+        '200':
+          description: A JSON hash containing the bearer token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                    example: bearer
+                  expires_in:
+                    type: integer
+                    example: 6900
+                  refresh_token:
+                    type: string
+                    example: 6fdad23ccbc1f8e415fc2cf8cd245dae
+                  access_token:
+                    type: string
+                    example: a8856a1a4e25b23d86fa9ae2ffce3b63
+        '412':
+          description: Provided authorization grant is invalid
+  /1.0.0/auth/validatetoken:
+    get:
+      summary: Validate authentication token
+      description: >-
+        Validate the authentication token and get information about the user
+        (roles, permissions, etc.)
+      tags:
+        - authentication
+      responses:
+        '200':
+          description: Success
+  /is/1.0.0/customers:
+    post:
+      summary: Create a new customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+    get:
+      summary: List all customers
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get details of the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update details of the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}/childcustomers':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List child customers
+      description: List all child customers of the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}/childcustomers/info':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List child customers (tabular)
+      description: List all child customers of the specified customer (tabular view)
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}/directchildcustomers/info':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List immediate child customers
+      description: List all immediate child customers of the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/tag/{taguuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+      - $ref: '#/components/parameters/taguuid'
+    delete:
+      summary: Delete the specified customer tag
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update customer tag
+      description: Update the specified customer tag
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/tag':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    post:
+      summary: Create a customer tag
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+    get:
+      summary: List tags
+      description: List all tags associated with the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/tag/associations':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List customer tag associations
+      description: List all customer tag associations for the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/account/{customeruuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get account information details
+      description: Get the account information for the specified customer
+      tags:
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/account/{customeruuid}/user':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List users
+      description: List all users associated with the customer
+      tags:
+        - customers
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/user':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: List users
+      description: List users associated with the specified customer
+      tags:
+        - customers
+        - users
+      responses:
+        '200':
+          description: Success
+    post:
+      summary: Create a user
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/user/{useruuid}':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+      - $ref: '#/components/parameters/useruuid'
+    get:
+      summary: Get user details
+      description: Get information about the specified user
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+    put:
+      summary: Update user
+      description: Update an existing user
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/user/{useruuid}/changePassword':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+      - $ref: '#/components/parameters/useruuid'
+    put:
+      summary: Update user password
+      description: Update the specified user's password
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/user/{useruuid}/roles':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+      - $ref: '#/components/parameters/useruuid'
+    get:
+      summary: List roles for user
+      description: List all roles associated with the specified user
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customer/{customeruuid}/user/{useruuid}/unlock':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+      - $ref: '#/components/parameters/useruuid'
+    get:
+      summary: Unlocks user
+      description: Unlocks a user that has previously been locked
+      tags:
+        - users
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}/defaultpercentage':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get default percentage
+      description: >-
+        Get default percentage for the specified customer <!-- percentage of
+        what??? discount/markup?-->
+      tags:
+        - pricing
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/is/1.0.0/customers/{customeruuid}/markuppercentage':
+    parameters:
+      - $ref: '#/components/parameters/customeruuid'
+    get:
+      summary: Get percentage
+      description: >-
+        Get percentage for the specified customer <!-- percentage of
+        what??? discount/markup?-->
+      tags:
+        - pricing
+        - customers
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}':
+    parameters:
+      - $ref: '#/components/parameters/endpointuuid'
+      - $ref: '#/components/parameters/startdate'
+      - $ref: '#/components/parameters/enddate'
+    get:
+      summary: Get statistics for endpoint
+      description: Get statistics related to the specified endpoint
+      tags:
+        - statistics
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate}':
+    parameters:
+      - $ref: '#/components/parameters/linkid'
+      - $ref: '#/components/parameters/startdate'
+      - $ref: '#/components/parameters/enddate'
+    get:
+      summary: Get statistics for flow
+      description: Get statistics related to the specified flow
+      tags:
+        - statistics
+        - links
+      responses:
+        '200':
+          description: Success
+  '/1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}':
+    parameters:
+      - $ref: '#/components/parameters/endpointuuid'
+      - $ref: '#/components/parameters/startdate'
+      - $ref: '#/components/parameters/enddate'
+    get:
+      summary: Get state statistics for endpoint
+      description: Get statistics related to the state of the specified endpoint
+      tags:
+        - statistics
+        - endpoints
+      responses:
+        '200':
+          description: Success
+  /bms/1.0.0/backup:
+    get:
+      summary: Create backup from VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/bms/1.0.0/backup/{backupuuid}':
+    parameters:
+      - $ref: '#/components/parameters/backupuuid'
+    get:
+      summary: Get information about the specified backup
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+    delete:
+      summary: Delete specified backup
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/bms/1.0.0/backup/vnf/{vnfuuid}':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    get:
+      summary: List backups
+      description: List available backups for the specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/bms/1.0.0/backup/vnf/{vnfuuid}/delete':
+    parameters:
+      - $ref: '#/components/parameters/vnfuuid'
+    post:
+      summary: Delete multiple backups
+      description: Delete list of backups associated with specified VNF
+      tags:
+        - vnfs
+      responses:
+        '200':
+          description: Success
+  '/bms/1.0.0/backup/{backupuuid}/restore':
+    parameters:
+      - $ref: '#/components/parameters/backupuuid'
+    post:
+      summary: Restore VNF from backup
+      description: Restore VNF from specified backup
+      tags:
+        - vnfs
+      responses:
+        '202':
+          description: Success
+        '400':
+          $ref: '#/components/responses/invalidrequest'
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+  /gwapi/1.0.0/dcs:
+    get:
+      summary: Get IPVPN interconnect locations
+      description: Get locations where IPVPN interconnect service can be provisioned
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/gwapi/1.0.0/{service_uuid}/customer/{customer_id}/endpoint':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/customer_id'
+    post:
+      summary: Create IPVPN endpoint
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '201':
+          description: Create Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    get:
+      summary: List IPVPN endpoints
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/gwapi/1.0.0/{service_uuid}/endpoint/{endpointuuid}':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+    get:
+      summary: Get IPVPN endpoint details
+      description: Get information about the specified IPVPN endpoint
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    post:
+      summary: Update the specified IPVPN endpoint
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    delete:
+      summary: Update IPVPN endpoint
+      description: Update the specified IPVPN endpoint
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '204':
+          description: Delete Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/gwapi/1.0.0/{service_uuid}/endpoint/{endpointuuid}/vport':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+    post:
+      summary: Create IPVPN VPort
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '202':
+          description: Create Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    get:
+      summary: List IPVPN VPorts
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/gwapi/1.0.0/{service_uuid}/endpoint/{endpointuuid}/vport/{vportuuid}':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+      - $ref: '#/components/parameters/vportuuid'
+    get:
+      summary: Get IPVPN VPort details
+      description: Get information about the specified IPVPN VPort
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    delete:
+      summary: Delete IPVPN VPort
+      description: Delete the specified IPVPN VPort
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '204':
+          description: Delete Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/gwapi/1.0.0/{service_uuid}/exchange_provider':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+    get:
+      summary: Get IPVPN profile summary
+      description: Get a profile summary about the customer's IPVPN services
+      tags:
+        - ipvpn
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  /ipvpn/1.0.0/dcs:
+    get:
+      summary: Get Next IP interconnect locations
+      description: Get locations where Next IP interconnect service can be provisioned
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/customer/{customer_id}/endpoint':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/customer_id'
+    get:
+      summary: List Next IP endpoints
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    post:
+      summary: Create Next IP endpoint
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '201':
+          description: Create Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/endpoint/{endpointuuid}':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+    get:
+      summary: Get Next IP endpoint details
+      description: Get information about the specified Next IP endpoint
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    post:
+      summary: Update Next IP endpoint
+      description: Update the specified Next IP endpoint
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    delete:
+      summary: Delete Next IP endpoint
+      description: Delete the specified Next IP endpoint
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '204':
+          description: Delete Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/endpoint/{endpointuuid}/vport':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+    post:
+      summary: Create Next IP VPort
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '202':
+          description: Create Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    get:
+      summary: List Next IP VPorts
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/endpoint/{endpointuuid}/vport/{vportuuid}':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+      - $ref: '#/components/parameters/endpointuuid'
+      - $ref: '#/components/parameters/vportuuid'
+    get:
+      summary: Get Next IP VPort details
+      description: Get information about the specified Next IP VPort
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+    delete:
+      summary: Delete Next IP VPort
+      description: Delete the specified Next IP VPort
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '204':
+          description: Delete Successful
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/exchange_provider':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+    get:
+      summary: Get Next IP profile summary
+      description: Get a profile summary about the customer's Next IP services
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+  '/ipvpn/1.0.0/{service_uuid}/fnn':
+    parameters:
+      - $ref: '#/components/parameters/service_uuid'
+    get:
+      summary: Get list of Next IP services
+      description: Get a list of the customer's available Next IP services
+      tags:
+        - nextip
+        - endpoints
+      responses:
+        '200':
+          description: Success
+        '401':
+          $ref: '#/components/responses/unauthenticated'
+        '403':
+          $ref: '#/components/responses/forbidden'
+        '404':
+          $ref: '#/components/responses/objectnotfound'
+        '405':
+          $ref: '#/components/responses/methodnotallowed'
+        '409':
+          $ref: '#/components/responses/statusconflict'
+        '422':
+          $ref: '#/components/responses/validationerror'
+        '500':
+          $ref: '#/components/responses/internalerror'
+tags:
+  - name: authentication
+    description: Authentication
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#customer-user-account
+  - name: endpoints
+    description: Endpoints
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#endpoint
+  - name: internet
+    description: Internet
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#endpoint
+  - name: links
+    description: Links
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#link
+  - name: contracts
+    description: Contracts
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#contract
+  - name: vports
+    description: Virtual Ports (VPorts)
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#virtual-ports-vport
+  - name: vnfs
+    description: Virtual Network Functions (Marketplace)
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#virtual-network-functions-marketplace
+  - name: datacentres
+    description: Data Centres
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#data-centre
+  - name: exchange
+    description: Global Exchange
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#global-exchange
+  - name: ipvpn
+    description: Telstra Global IPVPN
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#telstra-global-ipvpn
+  - name: nextip
+    description: Telstra Australian IPVPN (Next IP)
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#telstra-next-ip
+  - name: topologies
+    description: Topologies
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#topology-and-tag
+  - name: customers
+    description: Customers
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#customer-user-account
+  - name: users
+    description: Users
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#customer-user-account
+  - name: pricing
+    description: Pricing
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#customer-user-account
+  - name: statistics
+    description: Statistics
+    externalDocs:
+      url: >-
+        https://dev.telstra.com/content/programmable-network-api/key-concepts#statistics
